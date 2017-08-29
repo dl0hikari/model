@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/AMD.js"></script>
+</head>
+<body>
+<span id="demo">sssssssss</span>
+<script>
+    F.module(['lib/event', 'lib/dom'], function (events, dom) {
+        events.on('demo', 'click', function () {
+           dom.html('demo', 'success');
+        });
+    });
+</script>
+</body>
+</html>
