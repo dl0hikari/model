@@ -10,7 +10,7 @@ F.module('lib/dom', function () {
            if(html){
                this.g(id).innerHTML = html;
            }else{
-               return this.g(id).innerHTML;
+               return  this.g(id).innerHTML;
            }
        }
    };
