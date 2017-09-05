@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/AMD.js"></script>
+
+</head>
+<body>
+<script id="demo_script" type="text/template">
+    <div id="tag_cloud">
+        {% for(var i=0, len=tagCloud.length;i<len;i++){
+            var ctx = tagCloud[i];%}
+            <a href="#" class="tag_item
+            {% if(ctx['is_selected']){ %}
+                selected
+            {% } %}
+            " title="{%=ctx["title"]%}">{%=ctx["text"]%}</a>
+        {% } %}
+    </div>
+</script>
+<div id="test"></div>
+<script>
+    var data = {
+      tagCloud:[
+          {is_selected: true, title: '这是一本设计模式书', text: '设计模式'},
+          {is_selected: false, title: '这是一本HTML书', text: 'HTML'},
+          {is_selected: null, title: '这是一本CSS书', text: 'CSS'},
+          {is_selected: '', title: '这是一本JavaScript书', text: 'JavaScript'}
+      ]
+    };
+    F.module(['widget/tag_cloud'], function () {
+
+    })
+</script>
+</body>
+</html>
