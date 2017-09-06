@@ -60,18 +60,18 @@ F.module('lib/template', function () {
             //     .replace(new RegExp(_left, 'g'), "');")
             // // 替换右分隔符
             //     .replace(new RegExp(_right, 'g'), "template_array.push('");
-            var str =String(str).replace(/&lt;/g, '<')
+            var str2 =String(str).replace(/&lt;/g, '<')
                 // 转义标签内的>
-            str = str.replace(/&gt;/g, '>')
+            str2 = str2.replace(/&gt;/g, '>')
                 // 过滤掉回车符，制表符，回车符
-            str = str.replace(/[\r\t\n]/g, '')
+            str2 = str2.replace(/[\r\t\n]/g, '')
                 // 替换内容
-            str = str.replace(new RegExp(_left+'=(.*?)'+_right, 'g'), "',typeof($1) === 'undefined'?'':$1,'")
+            str2 = str2.replace(new RegExp(_left+'=(.*?)'+_right, 'g'), "',typeof($1) === 'undefined'?'':$1,'")
                 // 替换左分隔符
-            str = str.replace(new RegExp(_left, 'g'), "');")
+            str2 = str2.replace(new RegExp(_left, 'g'), "');")
                 // 替换右分隔符
-            str = str.replace(new RegExp(_right, 'g'), "template_array.push('");
-            return str;
+            str2 = str2.replace(new RegExp(_right, 'g'), "template_array.push('");
+            return str2;
         },
         /**
          * 编译执行
