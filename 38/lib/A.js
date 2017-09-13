@@ -413,6 +413,7 @@
                 var instance= Tween.queen[i];
                 // 当前成员已运动的时间
                 instance.passed = now - instance.start;
+                // 如果当前成员已运动的时间小于当前成员运动时间
                 if(instance.passed < instance.duration){
                     // 执行当前成员主函数
                     Tween.workFn(instance);
@@ -428,7 +429,7 @@
          */
         workFn: function (instance) {
             // 获取当前成员在当前时刻下的运动进程
-            instance.tween = this.easing[instance.type](instance.passed, instance.form,
+            instance.tween = this.easing[instance.type](instance.passed, instance.from,
                 instance.to-instance.from, instance.duration);
             // 执行主函数
             this.exec(instance);
