@@ -55,7 +55,7 @@
                     left = dom.offsetLeft,
                     // 拨片位置（以模型数据中position数据计算）
                     realWidth = (param.position || 100) * width / 100;
-                // 清空滑动条容器， 为穿件滑动条做准备
+                // 清空滑动条容器， 为创建滑动条做准备
                 dom.innerHTML = '';
                 // 如果模型数据中提供容器总量信息（param.totle), 则创建滚动条提示文案
                 if(param.totle){
