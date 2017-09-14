@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ui-slider, .ui-progressbar{position: relative; height: 20px; border: 1px #666666 solid; }
+        .ui-slider b{position: absolute; left: 100%;}
+        .ui-slider em{position: absolute; top: -20px;}
+        .ui-slider div, .ui-progressbar div{background: #ccc; height: 20px;}
+        .ui-slider span{position: absolute; display: block; top: 0; background: red; width: 20px; height: 20px;}
+        .first, .second, .third{margin-bottom: 20px;}
+    </style>
+</head>
+<body>
+<div style="border: 1px solid #aaa; width: 800px; padding: 20px;">
+    <div class="first" data-bind="type: 'slider', data: demo1"></div>
+    <div class="second" data-bind="type: 'slider', data: demo2"></div>
+    <div class="third" data-bind="type: 'progressbar', data: demo3"></div>
+</div>
+<script src="lib/MVVM.js"></script>
+<script>
+    var demo1 = {
+            position: 60,
+            totle: 200
+        },
+        // 简易版滑动条
+        demo2 = {
+            position: 20
+        },
+        // 进度条
+        demo3 = {
+            postion: 50
+        };
+    window.onload = function () {
+        // 渲染组件
+        VM();
+    }
+</script>
+</body>
+</html>
