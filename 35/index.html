@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test">  test   </div>
+<script src="lib/SMD.js"></script>
+<script>
+    // F.string 模块
+    F.define('string', function () {
+       //  接口方法
+        return {
+          trim: function (str) {
+              return str.replace(/^\s+|\s+$/g, '');
+          }
+        };
+    });
+    F.define('dom', function () {
+        // 简化获取元素方法
+       var $ = function (id) {
+         $.dom =  document.getElementById(id);
+         // 返回对象构造函数对象
+         return $;
+       };
+       // 获取或者设置元素内容
+        $.html = function (html) {
+            //
+            if(html){
+                this.dom.innerHTML = html;
+            }else{
+                return this.dom.innerHTML;
+            }
+        }
+        return $;
+    });
+    F.module(['dom', document], function(dom, doc) {
+        // 通过dom模块设置元素内容
+        dom('test').html('new add!');
+        // 通过document设置body元素背景色
+        doc.body.style.background = 'red';
+    });
+    F.module('dom', 'string.trim', function (dom, trim) {
+       //
+        var html = dom('test').html();
+        var str = trim(html);
+        console.log("*"+html+"*", "*"+str+"*");
+    });
+</script>
+</body>
+</html>
